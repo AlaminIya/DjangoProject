@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero">
+    <div class="column">
+        <h2 class="title is-2">Login</h2>
+    </div>
+
+ <div class="column">
+    <div class="card">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p}}
+
+    </div>
+    <div class="column">
+    <button class="button is-success is-medium" type="submit" value="Login"> Login</button>
+</div>
+</form>
+
+
+<div class="card">
+    <div class="column">
+    <a href="{% url 'dashboard'%}">
+        <button class="button is-success is-medium is-right">Back to dashboard</button>
+    </a><br><br><br>
+    <a href="{% url 'password_reset' %}">
+        <button class="button is-danger is-medium is-right">Reset Password</button>
+    </a>
+</div>
+</div>
+
+</div>
+
+</div>
+{% endblock %}

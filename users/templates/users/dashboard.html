@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="column">
+    <h2 class="title is-2">
+        Hi {{ user.username }}!
+        <a href=""></a>
+    </h2>
+</div>
+<div class="container">
+    <div class="column">
+        {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">
+            <button class="button is-success">Logout</button>
+        </a>
+        <a href="{% url 'password_change' %}">
+            <button class="button is-success">Change Password</button>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}">
+            <button class="button is-success">Login</button>
+        </a>
+        {% endif %}
+    </div>
+</div>
+</div>
+
+{% endblock %}
