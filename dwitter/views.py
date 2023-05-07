@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect 
 from .forms import DweetForm
+from django.views.generic.edit import UpdateView, DeleteView
 from .models import Dweet, Profile
 
 def dashboard(request):
@@ -33,3 +34,13 @@ def profile(request, pk):
         elif action == "unfollow":
             current_user_profile.save()
     return render(request, "dwitter/profile.html", {"profile":profile})
+
+def PostEditView(UpdateView):
+    model = Post.Dweet 
+    fields = ['body']
+    template_name = 'dwitter/post_form.html'
+
+    def get_success_url(self):
+        pk = self.kwargs['pk']
+        return reverse_lazy('post-detail', kwargs={'pk':pk})
+

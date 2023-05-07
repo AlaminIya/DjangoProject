@@ -8,10 +8,32 @@
         Hi {{ user.username }}!
         <a href=""></a>
     </h2>
+   
 </div>
+<div class="block">
+            
+    <a href="{% url 'dwitter:profile' request.user.profile.id %}">
+        <button class="button is-success is-light is-outlined is-fullwidth">
+            My Profile 
+        </button>
+    </a>
+
+</div>
+<div class="content">
+    {% for dweet in profile.user.dweets.all %}
+    <div class="box">
+        {{ dweet.body }}
+        <span class="is-small has-text-grey-light">
+            ({{ dweet.created_at }})
+        </span>
+    </div>
+    {% endfor %}
+
 <div class="container">
     <div class="column">
         {% if user.is_authenticated %}
+       
+        </div>
         <a href="{% url 'logout' %}">
             <button class="button is-success">Logout</button>
         </a>
