@@ -25,7 +25,7 @@ SECRET_KEY = 'jw_rd-e0*1unl=*hos50gc9wuq7!t93#ioxjs5vhz#xf9=lo&a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ thealamina.pythonanywhere.com]
 
 
 # Application definition
